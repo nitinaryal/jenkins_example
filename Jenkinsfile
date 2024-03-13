@@ -17,14 +17,15 @@ Jenkins pipepline
 4. Then we have to define stages which is a block that define what will be done or executed. 
    Note: you can define multiple stage within stages block. Each stage block then can have multiple steps which will execute given instruction (e.g. scripts)
 
-   pipeline {
-    agent: any
+pipeline {
+    agent any
     stages {
         stage ("Clean up"){
             steps{
                 //Recursively delete the current directory from the workspace 
                 //Ref: https://www.jenkins.io/doc/pipeline/steps/workflow-basic-steps/#deletedir-recursively-delete-the-current-directory-from-the-workspace
-                deleteDir()  
+                deleteDir() 
+            } 
         }
         stage("Clone Repo"){
             steps{
@@ -49,7 +50,5 @@ Jenkins pipepline
                 }
             }
         }
-
     }
-
-   }
+}
